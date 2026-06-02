@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbaa81fm85c6q"]
+
+[ext_resource type="Theme" uid="uid://5nqq86y7xfbv" path="res://Styles/MainMenu.tres" id="1_k7euw"]
+[ext_resource type="Script" uid="uid://b6i7y50ckn73g" path="res://mods-unpacked/pleirbag-PowerChoices/Button/makeDropdown.gd" id="2_20vmk"]
+
+[node name="ChoiceButton" type="OptionButton"]
+offset_right = 138.0
+offset_bottom = 38.0
+theme = ExtResource("1_k7euw")
+theme_override_font_sizes/font_size = 36
+disabled = true
+toggle_mode = false
+item_count = 1
+popup/item_0/text = " "
+popup/item_0/id = 0
+popup/item_0/disabled = true
+script = ExtResource("2_20vmk")

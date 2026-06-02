@@ -1,0 +1,21 @@
+{
+    "name": "PowerChoices",
+    "namespace": "pleirbag",
+    "version_number": "0.0.1",
+    "description": "ever wanted to choose what powers would spawn?",
+    "website_url": "https://github.com/pleirbag",
+    "dependencies": [],
+    "extra": {
+        "godot": {
+            "authors": ["pleirbag"],
+            "tags": [],
+            "description_rich": "",
+            "optional_dependencies": [],
+            "load_before": [],
+            "incompatibilities": [],
+            "compatible_mod_loader_version": ["6.2.0"],
+            "compatible_game_version": ["2.0"],
+            "config_schema": {}
+        }
+    }
+}
