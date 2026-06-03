@@ -5,6 +5,21 @@ const PowerChoicesConfig = preload("res://mods-unpacked/pleirbag-PowerChoices/sc
 func fill_pool(special: bool = false):
     var spec: bool = false
     var powr: bool = false
+    if PowerChoicesConfig.scramble_mode == true:
+        if special:
+            SPECIAL_POOL = POWER_POOL
+        else:
+            clear_pools()
+            for power in ELEMENT:
+                if PowerChoicesConfig.enabled_powers[power]:
+                    POWER_POOL.append(ELEMENT[power])
+                    powr = true
+        if !powr && SPECIAL_POOL.is_empty():
+            print("PoweChocies - No powers selected")
+            clear_pools()
+            POWER_POOL.append(ELEMENT.LIFE)
+            SPECIAL_POOL.append(ELEMENT.VOID)
+        return
     if special:
         if PowerChoicesConfig.enabled_powers["VOID"]:
             SPECIAL_POOL.append(ELEMENT.VOID)
@@ -46,17 +61,24 @@ func fill_pool(special: bool = false):
         if PowerChoicesConfig.enabled_powers["ELECTRIC"]:
             powr = true
             POWER_POOL.append(ELEMENT.ELECTRIC)
-    if !pow && !special:
-        print("\n\n\n\n made it into the tree of life")
+    if !powr && !special:
+        print("PoweChocies - No powers selected, defaulting to LIFE")
+        POWER_POOL.clear()
         POWER_POOL.append(ELEMENT.LIFE)
     if (!spec || SPECIAL_POOL.is_empty()) && special:
-        print("\n\n\n\n made it into the void of ass")
+        print("PoweChocies - No specials selected, defaulting to VOID")
+        SPECIAL_POOL.clear()
         SPECIAL_POOL.append(ELEMENT.VOID)
-    print("\n\n\n ELEMS:")
-    for i in POWER_POOL:
-        print(i, ELEMENT.keys()[i], '\n')
-    for i in SPECIAL_POOL:
-        print(i, ELEMENT.keys()[i], '\n')
+   # print("\n\n\nELEMS:")
+   # for i in POWER_POOL:
+   #     print(i, ELEMENT.keys()[i], PowerChoicesConfig.enabled_powers[ELEMENT.keys()[i]], '\n')
+   # for i in SPECIAL_POOL:
+   #     print(i, ELEMENT.keys()[i], PowerChoicesConfig.enabled_powers[ELEMENT.keys()[i]], '\n')
+        
+        
+static func clear_pools():
+    POWER_POOL.clear()
+    SPECIAL_POOL.clear()
     
 """func fill_pool(special: bool = false):
     if special:

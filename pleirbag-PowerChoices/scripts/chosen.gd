@@ -16,3 +16,5 @@ static var enabled_powers := {
     "ELECTRIC": true,
     "GUN": true
 }
+
+static var scramble_mode := false

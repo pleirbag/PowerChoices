@@ -1,11 +1,10 @@
 extends Control
 
 const PowerChoicesConfig = preload("res://mods-unpacked/pleirbag-PowerChoices/scripts/chosen.gd")
+const PowerChoices = preload("res://mods-unpacked/pleirbag-PowerChoices/extensions/Scripts/Maps/power_spot_extends.gd")
 var panel: PanelContainer
 var dropdown_button: Button
 var item_list: VBoxContainer
-var SPECIAL = ["VOID", "BLOOD", "SUN", "GUN"]
-var POWER = ["LIFE", "FIRE", "ROCK", "WATER", "VINE", "ICE", "LIGHT", "POISON", "ELECTRIC"]
 var items = ["LIFE", "FIRE", "ROCK", "WATER", "VINE", "ICE", "LIGHT", "VOID", "BLOOD", "SUN", "POISON", "ELECTRIC", "GUN"]
 
 func _ready():
@@ -38,7 +37,10 @@ func _ready():
         checkbox.add_theme_font_size_override("font_size", 20)
         checkbox.text = item
         checkbox.button_pressed = true
-        checkbox.toggled.connect(func(enabled):PowerChoicesConfig.enabled_powers[item] = enabled)
+        checkbox.toggled.connect(func(enabled):
+            PowerChoicesConfig.enabled_powers[item] = enabled
+            PowerChoices.clear_pools()
+            )
         PowerChoicesConfig.enabled_powers[item] = true
         item_list.add_child(checkbox)
     panel.custom_minimum_size = item_list.get_combined_minimum_size()

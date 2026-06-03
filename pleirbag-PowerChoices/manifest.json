@@ -1,7 +1,7 @@
 {
     "name": "PowerChoices",
     "namespace": "pleirbag",
-    "version_number": "0.0.1",
+    "version_number": "0.1.1",
     "description": "ever wanted to choose what powers would spawn?",
     "website_url": "https://github.com/pleirbag",
     "dependencies": [],
