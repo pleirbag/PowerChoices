@@ -5,15 +5,15 @@ const PowerChoicesConfig = preload("res://mods-unpacked/pleirbag-PowerChoices/sc
 func fill_pool(special: bool = false):
     var spec: bool = false
     var powr: bool = false
+    #print("sizes ", POWER_POOL.size(), '\n', SPECIAL_POOL.size())
     if PowerChoicesConfig.scramble_mode == true:
-        if special:
-            SPECIAL_POOL = POWER_POOL
-        else:
-            clear_pools()
+        if POWER_POOL.is_empty():
             for power in ELEMENT:
                 if PowerChoicesConfig.enabled_powers[power]:
                     POWER_POOL.append(ELEMENT[power])
                     powr = true
+        if special && SPECIAL_POOL.is_empty():
+            SPECIAL_POOL = POWER_POOL
         if !powr && SPECIAL_POOL.is_empty():
             print("PoweChocies - No powers selected")
             clear_pools()
@@ -78,7 +78,9 @@ func fill_pool(special: bool = false):
         
 static func clear_pools():
     POWER_POOL.clear()
+    POWER_POOL = []
     SPECIAL_POOL.clear()
+    SPECIAL_POOL = []
     
 """func fill_pool(special: bool = false):
     if special:
