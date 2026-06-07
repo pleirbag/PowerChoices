@@ -9,12 +9,12 @@ func _ready():
 
 func _on_item_selected(index: int):
     if index == 1:
-        print("sizes 1 ", PowerSpot.SPECIAL_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
+        #print("sizes 1 ", PowerSpot.SPECIAL_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
         PowerChoices.clear_pools()
-        print("sizes 2 ", PowerSpot.SPECIAL_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
+        #print("sizes 2 ", PowerSpot.SPECIAL_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
         PowerChoicesConfig.scramble_mode = true
     else:
-        print("sizes ELSE 1 ", PowerSpot.POWER_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
+        #print("sizes ELSE 1 ", PowerSpot.POWER_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
         PowerChoices.clear_pools()
-        print("sizes ELSE 2 ", PowerSpot.POWER_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
+        #print("sizes ELSE 2 ", PowerSpot.POWER_POOL.size(), '\n', PowerSpot.SPECIAL_POOL.size())
         PowerChoicesConfig.scramble_mode = false

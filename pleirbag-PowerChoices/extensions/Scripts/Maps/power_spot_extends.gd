@@ -15,7 +15,7 @@ func fill_pool(special: bool = false):
         if special && SPECIAL_POOL.is_empty():
             SPECIAL_POOL = POWER_POOL
         if !powr && SPECIAL_POOL.is_empty():
-            print("PoweChocies - No powers selected")
+            print("PoweChocies - No powers selected - Scramble mode")
             clear_pools()
             POWER_POOL.append(ELEMENT.LIFE)
             SPECIAL_POOL.append(ELEMENT.VOID)
